@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>Math 100 加减法练习</title>
+    <!-- 引入童趣字体和图标（不用改，自动加载） -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Bubblegum+Sans&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- 统一样式（不用改，确保界面好看） -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Bubblegum Sans', cursive;  /* 童趣字体 */
+            max-width: 800px;
+            margin: 0 auto;  /* 页面居中 */
+            padding: 20px;
+            background: linear-gradient(135deg, #e6f7ff 0%, #fceeff 100%);  /* 渐变背景 */
+            min-height: 100vh;
+            position: relative;
+        }
+        .container {
+            text-align: center;
+            margin-top: 30px;
+            background-color: white;
+            border-radius: 20px;  /* 圆角 */
+            padding: 30px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);  /* 轻微阴影 */
+        }
+        h1, h2, h3 {
+            font-family: 'Fredoka One', cursive;
+            color: #2e8b57;  /* 嫩绿色标题 */
+            margin-bottom: 20px;
+        }
+        button {
+            padding: 12px 30px;
+            font-size: 18px;
+            cursor: pointer;
+            background-color: #ffa500;  /* 亮橙色按钮 */
+            color: white;
+            border: none;
+            border-radius: 50px;  /* 圆形按钮 */
+            transition: all 0.3s ease;
+            font-family: 'Fredoka One', cursive;
+        }
+        button:hover {
+            transform: scale(1.05);  /* 鼠标放上去放大一点 */
+        }
+        .question {
+            font-size: 32px;  /* 题目字体大一点 */
+            margin: 30px 0;
+            padding: 20px;
+            border: 3px dashed #4169e1;  /* 天蓝色虚线边框 */
+            border-radius: 15px;
+            background-color: #f0f8ff;
+        }
+        input {
+            padding: 10px;
+            font-size: 20px;
+            width: 150px;
+            text-align: center;  /* 输入的数字居中 */
+            border: 2px solid #4169e1;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        .wrong {
+            color: #dc143c;  /* 红色错误提示 */
+            margin-top: 20px;
+            text-align: left;
+            padding: 15px;
+            background-color: #fff0f0;
+            border-radius: 10px;
+        }
+        /* 角落装饰图标（星星、奖杯等，增加童趣） */
+        .decor {
+            position: absolute;
+            opacity: 0.3;  /* 半透明 */
+            z-index: 0;
+        }
+        .decor i {
+            font-size: 80px;
+        }
+        .decor.top-left { top: 20px; left: 20px; }
+        .decor.top-right { top: 20px; right: 20px; }
+        .decor.bottom-left { bottom: 20px; left: 20px; }
+        .decor.bottom-right { bottom: 20px; right: 20px; }
+    </style>
+</head>
+<body>
+    <!-- 装饰图标（不用改） -->
+    <div class="decor top-left"><i class="fas fa-star"></i></div>
+    <div class="decor top-right"><i class="fas fa-award"></i></div>
+    <div class="decor bottom-left"><i class="fas fa-calculator"></i></div>
+    <div class="decor bottom-right"><i class="fas fa-smile"></i></div>
+
+    <!-- 页面内容（其他HTML文件会在这里显示） -->
+    <div class="container">
+        {% block content %}{% endblock %}
+    </div>
+</body>
+</html>

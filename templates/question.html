@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <!-- 答题反馈（答对绿色对勾，答错红色叉号，自动显示） -->
+    {% if feedback_msg %}
+    <div style="color: {{ feedback_color }}; font-size: 18px; margin-bottom: 15px;">
+        <i class="fas fa-{{ 'check' if feedback_color == 'green' else 'times' }}"></i> {{ feedback_msg }}
+    </div>
+    {% endif %}
+
+    <!-- 题目内容（显示当前题数/总题数） -->
+    <h2>第 {{ current }} / {{ total }} 题</h2>
+    <div class="question">{{ question.text }}</div>
+    <!-- 提交答案的表单 -->
+    <form action="{{ url_for('submit_answer') }}" method="post">
+        <input type="number" name="answer" placeholder="请输入答案" required autofocus>
+        <br><br>
+        <button type="submit"><i class="fas fa-paper-plane"></i> 提交答案</button>
+    </form>
+{% endblock %}

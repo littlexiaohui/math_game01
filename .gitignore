@@ -1,0 +1,16 @@
+# 虚拟环境
+venv/
+env/
+# Python缓存文件
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+# 本地环境配置
+.env
+# Mac系统自带冗余文件
+.DS_Store
+.AppleDouble
+.LSOverride
+# 日志文件
+*.log

@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1><i class="fas fa-trophy"></i> 答题完成！</h1>
+    
+    <div class="result-container">
+        <p>总题数：{{ total }} 题</p>
+        <p>得分：{{ score }} 分</p>
+        <p>用时：{{ time_used }}</p>
+        <p>正确率：{{ "%.1f%%" % (score/total*100) if total > 0 else "0.0%" }}</p>
+    </div>
+
+    <!-- 错误题目列表（如果有） -->
+    {% if wrong %}
+        <div class="wrong-questions">
+            <h3><i class="fas fa-exclamation-triangle"></i> 错误题目（共 {{ wrong|length }} 题）</h3>
+            <ul>
+                {% for q in wrong %}
+                    <li>
+                        {{ q.text }}<br>
+                        你的答案：<span style="color: red;">{{ q.user_answer }}</span> | 
+                        正确答案：<span style="color: green;">{{ q.correct_answer }}</span>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    {% else %}
+        <p style="color: green; font-size: 18px; margin: 20px 0;">
+            <i class="fas fa-star"></i> 全对！太棒啦！
+        </p>
+    {% endif %}
+
+    <!-- 新增「再来一次」按钮，跳转回首页（题目数量选择页面） -->
+    <div style="margin-top: 30px;">
+        <a href="{{ url_for('index') }}" style="text-decoration: none;">
+            <button style="padding: 12px 30px; font-size: 16px; background-color: #4CAF50; color: white; border: none; border-radius: 5px; cursor: pointer;">
+                <i class="fas fa-redo"></i> 再来一次
+            </button>
+        </a>
+    </div>
+{% endblock %}

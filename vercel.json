@@ -1,0 +1,14 @@
+{
+  "builds": [
+    {
+      "src": "math100.py",
+      "use": "@vercel/python"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "math100.py"
+    }
+  ]
+}
